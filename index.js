@@ -9,8 +9,7 @@ MongoClient.connect(url, function(err, client) {
   assert.equal(null, err);
   const db = client.db(dbName);
   const accounts = db.collection('accounts');
-  accounts.createIndex({ 'name': 1 })
-    .then(() => accounts.createIndex({ 'posts.when': -1 }))
+  accounts.createIndex({ 'posts.when': -1 })
     .then(() => accounts.insertMany(data))
     .then(() => accounts.aggregate([
       // UNWINDING POSTS
