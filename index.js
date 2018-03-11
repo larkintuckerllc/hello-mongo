@@ -82,7 +82,7 @@ MongoClient.connect(url, function(err, client) {
               $eq: [ '$posts', [{ comments: [] }] ],
             },
             then: [],
-            else: [ '$posts' ],
+            else: '$posts',
           },
         },
       } }, 
